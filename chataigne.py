@@ -1,0 +1,120 @@
+from pythonosc import dispatcher, osc_server, udp_client
+from pythonosc.osc_server import ThreadingOSCUDPServer
+import rtde_control
+import rtde_receive
+import threading
+import time
+import math
+
+ROBOT_IP = "192.168.12.1"
+OSC_LISTEN_IP = "0.0.0.0"
+OSC_LISTEN_PORT = 9000
+OSC_SEND_IP = "127.0.0.1"
+OSC_SEND_PORT = 8000
+
+# UR interfaces
+rtde_c = rtde_control.RTDEControlInterface(ROBOT_IP)
+rtde_r = rtde_receive.RTDEReceiveInterface(ROBOT_IP)
+
+# OSC client (for sending data)
+client = udp_client.SimpleUDPClient(OSC_SEND_IP, OSC_SEND_PORT)
+
+def deg_to_rad(deg):
+    return deg * math.pi / 180.0
+
+def rad_to_deg(rad):
+    return rad * 180.0 / math.pi
+
+# MoveJ handler
+def handle_movej(unused_addr, *args):
+    if len(args) not in [6, 8]:
+        print("Expected 6 joint values (°), optionally followed by acceleration (°/s²) and speed (°/s).")
+        return
+    try:
+        joint_positions = [deg_to_rad(j) for j in args[:6]]
+        acceleration = deg_to_rad(args[6]) if len(args) > 6 else deg_to_rad(30.0)
+        speed = deg_to_rad(args[7]) if len(args) > 7 else deg_to_rad(15.0)
+        rtde_c.moveJ(joint_positions, acceleration, speed)
+    except Exception as e:
+        print(f"moveJ error: {e}")
+        
+        
+def handle_servoj(unused_addr, *args):
+    if len(args) not in [6, 10]:
+        print("Expected 6 joint values (deg), optionally followed by lookahead_time, gain, acceleration, and speed.")
+        return
+    try:
+        joint_positions_deg = list(args[:6])
+        joint_positions_rad = [math.radians(j) for j in joint_positions_deg]
+
+        # Optional parameters
+        lookahead_time = args[6] if len(args) > 6 else 0.1
+        gain = args[7] if len(args) > 7 else 300
+        acceleration = math.radians(args[8]) if len(args) > 8 else math.radians(100)
+        speed = math.radians(args[9]) if len(args) > 9 else math.radians(100)
+
+        rtde_c.servoJ(joint_positions_rad, acceleration, speed, 0.002, lookahead_time, gain)
+    except Exception as e:
+        print(f"servoj error: {e}")
+        
+def handle_servoj_stop(unused_addr):
+    try:
+        rtde_c.servoStop()
+        print("ServoJ stopped.")
+    except Exception as e:
+        print(f"servoj_stop error: {e}")
+
+# Teach mode handler
+def handle_teachmode(unused_addr, flag):
+    try:
+        if flag == 1:
+            rtde_c.teachMode()
+            print("Teach mode activated.")
+        else:
+            tcp_speed = rtde_r.getActualTCPSpeed()
+            speed_sum = sum(abs(tcp_speed[i]) for i in range(6))
+            while speed_sum > 0.1:
+                print(f"Current TCP speed: {tcp_speed}, waiting to end teach mode...")
+                time.sleep(0.1)
+                tcp_speed = rtde_r.getActualTCPSpeed()
+                # print(tcp_speed)
+                speed_sum = sum(abs(tcp_speed[i]) for i in range(6))
+            rtde_c.endTeachMode()
+            print("Teach mode ended.")
+    except Exception as e:
+        print(f"Teach mode error: {e}")
+
+# Start OSC dispatcher
+dispatcher = dispatcher.Dispatcher()
+dispatcher.map("/movej", handle_movej)
+dispatcher.map("/teach_mode", handle_teachmode)
+dispatcher.map("/servoj", handle_servoj)
+dispatcher.map("/servoj_stop", handle_servoj_stop)
+
+
+server = ThreadingOSCUDPServer((OSC_LISTEN_IP, OSC_LISTEN_PORT), dispatcher)
+
+# Thread to periodically send joint states
+if __name__ == "__main__":
+    print(f"Listening for OSC on {OSC_LISTEN_IP}:{OSC_LISTEN_PORT}")
+
+    # Start OSC server in the background
+    server_thread = threading.Thread(target=server.serve_forever, daemon=True)
+    server_thread.start()
+
+    while True:
+        try:
+            # Send joint angles in degrees
+            joints = rtde_r.getActualQ()
+            for i, joint_value in enumerate(joints):
+                client.send_message(f"/joint/{i}", rad_to_deg(joint_value))
+
+            # Send TCP force (6 components)
+            tcp_force = rtde_r.getActualTCPForce()
+            for i, force_value in enumerate(tcp_force):
+                client.send_message(f"/tcp_force/{i}", force_value)
+
+        except Exception as e:
+            print(f"Error in RTDE loop: {e}")
+
+        time.sleep(0.01)  # 100Hz loop frequency, adjust as needed
