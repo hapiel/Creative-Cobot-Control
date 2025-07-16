@@ -83,6 +83,29 @@ def handle_teachmode(unused_addr, flag):
             print("Teach mode ended.")
     except Exception as e:
         print(f"Teach mode error: {e}")
+        
+def handle_stop(unused_addr):
+    try:
+        print("Stopping all motion...")
+
+        decel = 10.0  # [rad/s^2] for speedJ / [m/s^2] for speedL / servo stop
+
+        # Stop normal motions
+        rtde_c.stopJ(0.5)               # joint stop
+        rtde_c.stopL(0.5)               # linear stop
+        rtde_c.speedStop(decel)        # stop speed motions with deceleration
+        rtde_c.jogStop()               # stop jog motions
+        rtde_c.forceModeStop()         # exit force mode
+
+        # Stop servo motions with deceleration
+        rtde_c.servoStop(decel)
+
+        # Stop any running URScript
+        rtde_c.stopScript()
+
+        print("Robot stop command issued.")
+    except Exception as e:
+        print(f"Error stopping robot: {e}")
 
 # Start OSC dispatcher
 dispatcher = dispatcher.Dispatcher()
@@ -90,6 +113,8 @@ dispatcher.map("/movej", handle_movej)
 dispatcher.map("/teach_mode", handle_teachmode)
 dispatcher.map("/servoj", handle_servoj)
 dispatcher.map("/servoj_stop", handle_servoj_stop)
+dispatcher.map("/stop", handle_stop)
+
 
 
 server = ThreadingOSCUDPServer((OSC_LISTEN_IP, OSC_LISTEN_PORT), dispatcher)
