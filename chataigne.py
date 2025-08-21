@@ -39,7 +39,29 @@ def handle_movej(unused_addr, *args):
     except Exception as e:
         print(f"moveJ error: {e}")
         
-        
+
+def handle_movel(unused_addr, *args):
+    if len(args) not in [6, 8]:
+        print("Expected 6 pose values (x, y, z in m, rx, ry, rz in °), optionally followed by acceleration (m/s²) and speed (m/s).")
+        return
+    
+    try:
+        # Required pose
+        # First three are position in meters, last three are orientation in degrees → convert to radians
+        pose = list(args[:3]) + [deg_to_rad(val) for val in args[3:6]]
+
+        # Optional parameters
+        acceleration = args[6] if len(args) > 6 else 0.25   # [m/s²]
+        speed = args[7] if len(args) > 7 else 0.25          # [m/s]
+
+        # Send moveL command (blocking = True)
+        rtde_c.moveL(pose, acceleration, speed, True)
+        print(f"moveL executed: pose={pose}, a={acceleration}, v={speed}")
+
+    except Exception as e:
+        print(f"moveL error: {e}")
+
+
 def handle_servoj(unused_addr, *args):
     if len(args) not in [6, 10]:
         print("Expected 6 joint values (deg), optionally followed by lookahead_time, gain, acceleration, and speed.")
@@ -67,20 +89,22 @@ def handle_servoj_stop(unused_addr):
         
     
 def handle_servol(unused_addr, *args):
-    if len(args) not in [6, 10]:
-        print("Expected 6 pose values (x, y, z, rx, ry, rz in meters and radians), optionally followed by time, lookahead_time, and gain.")
+    if len(args) not in [6, 9]:
+        print("Expected 6 pose values (x, y, z in m, rx, ry, rz in °), optionally followed by time, lookahead_time, and gain.")
         return
     try:
-        # Required pose parameters: [x, y, z, rx, ry, rz]
-        pose = list(args[:6])
+        # Required pose: convert last three (orientation) from degrees → radians
+        pose = list(args[:3]) + [deg_to_rad(val) for val in args[3:6]]
 
         # Optional parameters
-        time = args[6] if len(args) > 6 else 0.002  # How long the command influences robot
+        time = args[6] if len(args) > 6 else 0.002  # [s] How long the command influences robot
         lookahead_time = args[7] if len(args) > 7 else 0.1
         gain = args[8] if len(args) > 8 else 300
 
-        # Note: speed and acceleration are NOT used in servoL
+        # speed and acceleration are not used in servoL
         rtde_c.servoL(pose, 0.0, 0.0, time, lookahead_time, gain)
+        print(f"servoL executed: pose={pose}, t={time}, lookahead={lookahead_time}, gain={gain}")
+
     except Exception as e:
         print(f"servol error: {e}")
 
@@ -139,13 +163,13 @@ def handle_stop(unused_addr):
 # Start OSC dispatcher
 dispatcher = dispatcher.Dispatcher()
 dispatcher.map("/movej", handle_movej)
+dispatcher.map("/movel", handle_movel)
 dispatcher.map("/teach_mode", handle_teachmode)
 dispatcher.map("/servoj", handle_servoj)
 dispatcher.map("/servoj_stop", handle_servoj_stop)
 dispatcher.map("/stop", handle_stop)
 dispatcher.map("/servol", handle_servol)
 dispatcher.map("/servol_stop", handle_servol_stop)
-
 
 
 
@@ -174,10 +198,12 @@ if __name__ == "__main__":
             tcp_force = rtde_r.getActualTCPForce()
             client.send_message("/tcp_force", tcp_force)
 
-# Send TCP pose (6 components) in one message
+            # Send TCP pose (x, y, z in meters, rx, ry, rz in degrees)
             tcp_pose = rtde_r.getActualTCPPose()  # [x, y, z, rx, ry, rz]
-            client.send_message("/tcp_pose", tcp_pose)
-
+            tcp_pose_converted = tcp_pose[:3] + [rad_to_deg(val) for val in tcp_pose[3:]]
+            client.send_message("/tcp_pose", tcp_pose_converted)
+            
+            
         except Exception as e:
             print(f"Error in RTDE loop: {e}")
 
