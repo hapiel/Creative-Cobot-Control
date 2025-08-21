@@ -9,7 +9,8 @@ import math
 ROBOT_IP = "192.168.12.1"
 OSC_LISTEN_IP = "0.0.0.0"
 OSC_LISTEN_PORT = 9000
-OSC_SEND_IP = "127.0.0.1"
+# OSC_SEND_IP = "127.0.0.1"
+OSC_SEND_IP = "192.168.217.255"
 OSC_SEND_PORT = 8000
 
 # UR interfaces
@@ -34,7 +35,7 @@ def handle_movej(unused_addr, *args):
         joint_positions = [deg_to_rad(j) for j in args[:6]]
         acceleration = deg_to_rad(args[6]) if len(args) > 6 else deg_to_rad(30.0)
         speed = deg_to_rad(args[7]) if len(args) > 7 else deg_to_rad(15.0)
-        rtde_c.moveJ(joint_positions, acceleration, speed)
+        rtde_c.moveJ(joint_positions, acceleration, speed, True)
     except Exception as e:
         print(f"moveJ error: {e}")
         
@@ -63,6 +64,34 @@ def handle_servoj_stop(unused_addr):
         print("ServoJ stopped.")
     except Exception as e:
         print(f"servoj_stop error: {e}")
+        
+    
+def handle_servol(unused_addr, *args):
+    if len(args) not in [6, 10]:
+        print("Expected 6 pose values (x, y, z, rx, ry, rz in meters and radians), optionally followed by time, lookahead_time, and gain.")
+        return
+    try:
+        # Required pose parameters: [x, y, z, rx, ry, rz]
+        pose = list(args[:6])
+
+        # Optional parameters
+        time = args[6] if len(args) > 6 else 0.002  # How long the command influences robot
+        lookahead_time = args[7] if len(args) > 7 else 0.1
+        gain = args[8] if len(args) > 8 else 300
+
+        # Note: speed and acceleration are NOT used in servoL
+        rtde_c.servoL(pose, 0.0, 0.0, time, lookahead_time, gain)
+    except Exception as e:
+        print(f"servol error: {e}")
+
+
+def handle_servol_stop(unused_addr):
+    try:
+        rtde_c.servoStop()
+        print("ServoL stopped.")
+    except Exception as e:
+        print(f"servol_stop error: {e}")
+
 
 # Teach mode handler
 def handle_teachmode(unused_addr, flag):
@@ -91,17 +120,17 @@ def handle_stop(unused_addr):
         decel = 10.0  # [rad/s^2] for speedJ / [m/s^2] for speedL / servo stop
 
         # Stop normal motions
-        rtde_c.stopJ(0.5)               # joint stop
-        rtde_c.stopL(0.5)               # linear stop
-        rtde_c.speedStop(decel)        # stop speed motions with deceleration
-        rtde_c.jogStop()               # stop jog motions
-        rtde_c.forceModeStop()         # exit force mode
+        rtde_c.stopJ(500, True)               # joint stop
+        # rtde_c.stopL(0.5)               # linear stop
+        # rtde_c.speedStop(decel)        # stop speed motions with deceleration
+        # rtde_c.jogStop()               # stop jog motions
+        # rtde_c.forceModeStop()         # exit force mode
 
-        # Stop servo motions with deceleration
-        rtde_c.servoStop(decel)
+        # # Stop servo motions with deceleration
+        # rtde_c.servoStop(decel)
 
-        # Stop any running URScript
-        rtde_c.stopScript()
+        # # Stop any running URScript
+        # rtde_c.stopScript()
 
         print("Robot stop command issued.")
     except Exception as e:
@@ -114,6 +143,9 @@ dispatcher.map("/teach_mode", handle_teachmode)
 dispatcher.map("/servoj", handle_servoj)
 dispatcher.map("/servoj_stop", handle_servoj_stop)
 dispatcher.map("/stop", handle_stop)
+dispatcher.map("/servol", handle_servol)
+dispatcher.map("/servol_stop", handle_servol_stop)
+
 
 
 
@@ -138,8 +170,15 @@ if __name__ == "__main__":
             tcp_force = rtde_r.getActualTCPForce()
             for i, force_value in enumerate(tcp_force):
                 client.send_message(f"/tcp_force/{i}", force_value)
+                
+            tcp_pose = rtde_r.getActualTCPPose()  # [x, y, z, rx, ry, rz]
+            for i, pose_value in enumerate(tcp_pose):
+                client.send_message(f"/tcp_pose/{i}", pose_value)
 
         except Exception as e:
             print(f"Error in RTDE loop: {e}")
 
         time.sleep(0.01)  # 100Hz loop frequency, adjust as needed
+        
+        
+        
