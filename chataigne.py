@@ -10,7 +10,7 @@ ROBOT_IP = "192.168.12.1"
 OSC_LISTEN_IP = "0.0.0.0"
 OSC_LISTEN_PORT = 9000
 # OSC_SEND_IP = "127.0.0.1"
-OSC_SEND_IP = "192.168.217.255"
+OSC_SEND_IP = "192.168.217.255" # broadcast
 OSC_SEND_PORT = 8000
 
 # UR interfaces
@@ -162,23 +162,26 @@ if __name__ == "__main__":
     while True:
         try:
             # Send joint angles in degrees
-            joints = rtde_r.getActualQ()
-            for i, joint_value in enumerate(joints):
-                client.send_message(f"/joint/{i}", rad_to_deg(joint_value))
-
-            # Send TCP force (6 components)
-            tcp_force = rtde_r.getActualTCPForce()
-            for i, force_value in enumerate(tcp_force):
-                client.send_message(f"/tcp_force/{i}", force_value)
+            # joints = rtde_r.getActualQ()
+            # for i, joint_value in enumerate(joints):
+            #     client.send_message(f"/joint/{i}", rad_to_deg(joint_value))
                 
+            joints = rtde_r.getActualQ()
+            joint_values_deg = [rad_to_deg(j) for j in joints]
+            client.send_message("/joints", joint_values_deg)
+
+            # Send TCP force (6 components) in one message
+            tcp_force = rtde_r.getActualTCPForce()
+            client.send_message("/tcp_force", tcp_force)
+
+# Send TCP pose (6 components) in one message
             tcp_pose = rtde_r.getActualTCPPose()  # [x, y, z, rx, ry, rz]
-            for i, pose_value in enumerate(tcp_pose):
-                client.send_message(f"/tcp_pose/{i}", pose_value)
+            client.send_message("/tcp_pose", tcp_pose)
 
         except Exception as e:
             print(f"Error in RTDE loop: {e}")
 
-        time.sleep(0.01)  # 100Hz loop frequency, adjust as needed
+        time.sleep(0.03)  # 100Hz loop frequency, adjust as needed
         
         
         

@@ -1,0 +1,2 @@
+python_osc==1.9.3
+ur_rtde==1.6.0 --prefer-binary
