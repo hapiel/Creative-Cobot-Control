@@ -103,7 +103,7 @@ def handle_servol(unused_addr, *args):
 
         # speed and acceleration are not used in servoL
         rtde_c.servoL(pose, 0.0, 0.0, time, lookahead_time, gain)
-        print(f"servoL executed: pose={pose}, t={time}, lookahead={lookahead_time}, gain={gain}")
+        # print(f"servoL executed: pose={pose}, t={time}, lookahead={lookahead_time}, gain={gain}")
 
     except Exception as e:
         print(f"servol error: {e}")
