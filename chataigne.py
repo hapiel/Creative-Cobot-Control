@@ -1,4 +1,4 @@
-from pythonosc import dispatcher, osc_server, udp_client
+from pythonosc import dispatcher, udp_client
 from pythonosc.osc_server import ThreadingOSCUDPServer
 import rtde_control
 import rtde_receive
@@ -185,11 +185,6 @@ if __name__ == "__main__":
 
     while True:
         try:
-            # Send joint angles in degrees
-            # joints = rtde_r.getActualQ()
-            # for i, joint_value in enumerate(joints):
-            #     client.send_message(f"/joint/{i}", rad_to_deg(joint_value))
-                
             joints = rtde_r.getActualQ()
             joint_values_deg = [rad_to_deg(j) for j in joints]
             client.send_message("/joints", joint_values_deg)
@@ -207,7 +202,7 @@ if __name__ == "__main__":
         except Exception as e:
             print(f"Error in RTDE loop: {e}")
 
-        time.sleep(0.03)  # 100Hz loop frequency, adjust as needed
+        time.sleep(0.03)  # 30Hz loop frequency, adjust as needed
         
         
         

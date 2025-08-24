@@ -34,7 +34,6 @@ function scriptParameterChanged(param)
 			yPos = 0.0;
 		}
 
-
 		var consequence = newTimeTrigger.getChild("Consequences").addItem("Consequence");
 		
 		script.log(consequence.getControllables());
