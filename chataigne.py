@@ -6,6 +6,7 @@ import threading
 import time
 import math
 
+# ROBOT_IP = "192.168.12.1"
 ROBOT_IP = "192.168.12.1"
 OSC_LISTEN_IP = "0.0.0.0"
 OSC_LISTEN_PORT = 9000
