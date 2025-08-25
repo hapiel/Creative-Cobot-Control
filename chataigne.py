@@ -6,12 +6,11 @@ import threading
 import time
 import math
 
-# ROBOT_IP = "192.168.12.1"
 ROBOT_IP = "192.168.12.1"
 OSC_LISTEN_IP = "0.0.0.0"
 OSC_LISTEN_PORT = 9000
 # OSC_SEND_IP = "127.0.0.1"
-OSC_SEND_IP = "192.168.217.255" # broadcast
+OSC_SEND_IP = "192.168.12.255" # broadcast
 OSC_SEND_PORT = 8000
 
 # UR interfaces
@@ -203,7 +202,7 @@ if __name__ == "__main__":
         except Exception as e:
             print(f"Error in RTDE loop: {e}")
 
-        time.sleep(0.03)  # 30Hz loop frequency, adjust as needed
+        time.sleep(0.001)  # 30Hz loop frequency, adjust as needed
         
         
         

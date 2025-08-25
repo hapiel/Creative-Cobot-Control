@@ -36,9 +36,15 @@ function scriptParameterChanged(param)
 
 		var consequence = newTimeTrigger.getChild("Consequences").addItem("Consequence");
 		
-		script.log(consequence.getControllables());
+		var myCommand = new Command();
+		consequence.setCommand(myCommand);
+
+
+		script.log(JSON.stringify(Command));
 
 	}
 }
 
 //GetControllables output: [[Enabled : Boolean > 1], [MiniMode : Boolean > 0], [ListSize : Float > 24.000], [ViewUIPosition : Point2D > [0.0,0.0]], [ViewUISize : Point2D > [200.0,200.0]], [Locked : Boolean > 0], [Trigger : Trigger]]
+
+// 10:58:36.923	Script : create_timetrigger_movej	[[Enabled : Boolean > 1], [MiniMode : Boolean > 0], [ListSize : Float > 24.000], [ViewUIPosition : Point2D > [0.0,0.0]], [ViewUISize : Point2D > [200.0,200.0]], [Locked : Boolean > 0], [Trigger : Trigger]]
