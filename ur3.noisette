@@ -1322,32 +1322,32 @@
   "layout": {
     "mainLayout": {
       "type": 1,
-      "width": 1441,
-      "height": 810,
+      "width": 1718,
+      "height": 1340,
       "direction": 2,
       "shifters": [
         {
           "type": 1,
-          "width": 1441,
-          "height": 810,
+          "width": 1718,
+          "height": 1340,
           "direction": 2,
           "shifters": [
             {
               "type": 1,
-              "width": 1441,
-              "height": 522,
+              "width": 1718,
+              "height": 934,
               "direction": 1,
               "shifters": [
                 {
                   "type": 1,
                   "width": 333,
-                  "height": 522,
+                  "height": 934,
                   "direction": 2,
                   "shifters": [
                     {
                       "type": 0,
                       "width": 333,
-                      "height": 249,
+                      "height": 456,
                       "currentContent": "Modules",
                       "tabs": [
                         {
@@ -1358,7 +1358,7 @@
                     {
                       "type": 0,
                       "width": 333,
-                      "height": 266,
+                      "height": 472,
                       "currentContent": "Custom Variables",
                       "tabs": [
                         {
@@ -1370,8 +1370,8 @@
                 },
                 {
                   "type": 0,
-                  "width": 716,
-                  "height": 522,
+                  "width": 998,
+                  "height": 934,
                   "currentContent": "State Machine",
                   "tabs": [
                     {
@@ -1390,8 +1390,8 @@
                 },
                 {
                   "type": 0,
-                  "width": 380,
-                  "height": 522,
+                  "width": 375,
+                  "height": 934,
                   "currentContent": "Inspector",
                   "tabs": [
                     {
@@ -1403,14 +1403,14 @@
             },
             {
               "type": 1,
-              "width": 1441,
-              "height": 282,
+              "width": 1718,
+              "height": 400,
               "direction": 1,
               "shifters": [
                 {
                   "type": 0,
                   "width": 270,
-                  "height": 282,
+                  "height": 400,
                   "currentContent": "Sequences",
                   "tabs": [
                     {
@@ -1420,8 +1420,8 @@
                 },
                 {
                   "type": 0,
-                  "width": 821,
-                  "height": 282,
+                  "width": 964,
+                  "height": 400,
                   "currentContent": "Sequence Editor",
                   "tabs": [
                     {
@@ -1431,8 +1431,8 @@
                 },
                 {
                   "type": 0,
-                  "width": 338,
-                  "height": 282,
+                  "width": 472,
+                  "height": 400,
                   "currentContent": "Logger",
                   "tabs": [
                     {
@@ -1457,12 +1457,6 @@
   "modules": {
     "items": [
       {
-        "parameters": [
-          {
-            "value": false,
-            "controlAddress": "/logIncoming"
-          }
-        ],
         "niceName": "OSC robotdriver",
         "type": "OSC",
         "scripts": {
@@ -1531,10 +1525,6 @@
                 },
                 {
                   "parameters": [
-                    {
-                      "value": true,
-                      "controlAddress": "/enabled"
-                    },
                     {
                       "value": false,
                       "controlAddress": "/local"
@@ -3224,6 +3214,48 @@
               "niceName": "wrist 3",
               "editorIsCollapsed": true,
               "type": "Float Parameter"
+            },
+            {
+              "parameters": [
+                {
+                  "value": 0.0,
+                  "minValue": 0,
+                  "maxValue": 180,
+                  "default": 0.0,
+                  "controlAddress": "/speed",
+                  "feedbackOnly": false,
+                  "type": "Float",
+                  "niceName": "speed",
+                  "customizable": true,
+                  "removable": false,
+                  "description": "Custom control of type Float",
+                  "hideInEditor": false
+                }
+              ],
+              "niceName": "speed",
+              "editorIsCollapsed": true,
+              "type": "Float Parameter"
+            },
+            {
+              "parameters": [
+                {
+                  "value": 0.0,
+                  "minValue": 0.0,
+                  "maxValue": 2250.0,
+                  "default": 0.0,
+                  "controlAddress": "/acceleration",
+                  "feedbackOnly": false,
+                  "type": "Float",
+                  "niceName": "acceleration",
+                  "customizable": true,
+                  "removable": false,
+                  "description": "Custom control of type Float",
+                  "hideInEditor": false
+                }
+              ],
+              "niceName": "acceleration",
+              "editorIsCollapsed": true,
+              "type": "Float Parameter"
             }
           ],
           "viewOffset": [
@@ -3337,6 +3369,34 @@
                     ],
                     "owned": true,
                     "niceName": "wrist 3"
+                  },
+                  "speed": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/speed"
+                      },
+                      {
+                        "value": "Change at start",
+                        "controlAddress": "/mode"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "speed"
+                  },
+                  "acceleration": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/acceleration"
+                      },
+                      {
+                        "value": "Change at start",
+                        "controlAddress": "/mode"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "acceleration"
                   }
                 }
               }
@@ -3445,6 +3505,26 @@
                     ],
                     "owned": true,
                     "niceName": "wrist 3"
+                  },
+                  "speed": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/speed"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "speed"
+                  },
+                  "acceleration": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/acceleration"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "acceleration"
                   }
                 }
               }
@@ -3553,6 +3633,26 @@
                     ],
                     "owned": true,
                     "niceName": "wrist 3"
+                  },
+                  "speed": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/speed"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "speed"
+                  },
+                  "acceleration": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/acceleration"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "acceleration"
                   }
                 }
               }
@@ -3661,6 +3761,26 @@
                     ],
                     "owned": true,
                     "niceName": "wrist 3"
+                  },
+                  "speed": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/speed"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "speed"
+                  },
+                  "acceleration": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/acceleration"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "acceleration"
                   }
                 }
               }
@@ -3769,6 +3889,26 @@
                     ],
                     "owned": true,
                     "niceName": "wrist 3"
+                  },
+                  "speed": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/speed"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "speed"
+                  },
+                  "acceleration": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/acceleration"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "acceleration"
                   }
                 }
               }
@@ -3877,6 +4017,26 @@
                     ],
                     "owned": true,
                     "niceName": "wrist 3"
+                  },
+                  "speed": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/speed"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "speed"
+                  },
+                  "acceleration": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/acceleration"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "acceleration"
                   }
                 }
               }
@@ -3985,6 +4145,26 @@
                     ],
                     "owned": true,
                     "niceName": "wrist 3"
+                  },
+                  "speed": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/speed"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "speed"
+                  },
+                  "acceleration": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/acceleration"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "acceleration"
                   }
                 }
               }
@@ -4093,6 +4273,26 @@
                     ],
                     "owned": true,
                     "niceName": "wrist 3"
+                  },
+                  "speed": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/speed"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "speed"
+                  },
+                  "acceleration": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/acceleration"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "acceleration"
                   }
                 }
               }
@@ -4201,6 +4401,26 @@
                     ],
                     "owned": true,
                     "niceName": "wrist 3"
+                  },
+                  "speed": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/speed"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "speed"
+                  },
+                  "acceleration": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/acceleration"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "acceleration"
                   }
                 }
               }
@@ -4309,6 +4529,26 @@
                     ],
                     "owned": true,
                     "niceName": "wrist 3"
+                  },
+                  "speed": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/speed"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "speed"
+                  },
+                  "acceleration": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/acceleration"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "acceleration"
                   }
                 }
               }
@@ -4417,6 +4657,26 @@
                     ],
                     "owned": true,
                     "niceName": "wrist 3"
+                  },
+                  "speed": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/speed"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "speed"
+                  },
+                  "acceleration": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/acceleration"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "acceleration"
                   }
                 }
               }
@@ -4525,6 +4785,26 @@
                     ],
                     "owned": true,
                     "niceName": "wrist 3"
+                  },
+                  "speed": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/speed"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "speed"
+                  },
+                  "acceleration": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/acceleration"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "acceleration"
                   }
                 }
               }
@@ -4633,6 +4913,26 @@
                     ],
                     "owned": true,
                     "niceName": "wrist 3"
+                  },
+                  "speed": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/speed"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "speed"
+                  },
+                  "acceleration": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/acceleration"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "acceleration"
                   }
                 }
               }
@@ -4741,6 +5041,26 @@
                     ],
                     "owned": true,
                     "niceName": "wrist 3"
+                  },
+                  "speed": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/speed"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "speed"
+                  },
+                  "acceleration": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/acceleration"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "acceleration"
                   }
                 }
               }
@@ -4849,6 +5169,26 @@
                     ],
                     "owned": true,
                     "niceName": "wrist 3"
+                  },
+                  "speed": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/speed"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "speed"
+                  },
+                  "acceleration": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/acceleration"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "acceleration"
                   }
                 }
               }
@@ -4957,6 +5297,26 @@
                     ],
                     "owned": true,
                     "niceName": "wrist 3"
+                  },
+                  "speed": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/speed"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "speed"
+                  },
+                  "acceleration": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/acceleration"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "acceleration"
                   }
                 }
               }
@@ -5065,6 +5425,26 @@
                     ],
                     "owned": true,
                     "niceName": "wrist 3"
+                  },
+                  "speed": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/speed"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "speed"
+                  },
+                  "acceleration": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/acceleration"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "acceleration"
                   }
                 }
               }
@@ -5173,6 +5553,26 @@
                     ],
                     "owned": true,
                     "niceName": "wrist 3"
+                  },
+                  "speed": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/speed"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "speed"
+                  },
+                  "acceleration": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/acceleration"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "acceleration"
                   }
                 }
               }
@@ -5281,6 +5681,26 @@
                     ],
                     "owned": true,
                     "niceName": "wrist 3"
+                  },
+                  "speed": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/speed"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "speed"
+                  },
+                  "acceleration": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/acceleration"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "acceleration"
                   }
                 }
               }
@@ -5389,6 +5809,26 @@
                     ],
                     "owned": true,
                     "niceName": "wrist 3"
+                  },
+                  "speed": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/speed"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "speed"
+                  },
+                  "acceleration": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/acceleration"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "acceleration"
                   }
                 }
               }
@@ -5497,6 +5937,26 @@
                     ],
                     "owned": true,
                     "niceName": "wrist 3"
+                  },
+                  "speed": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/speed"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "speed"
+                  },
+                  "acceleration": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/acceleration"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "acceleration"
                   }
                 }
               }
@@ -5605,6 +6065,26 @@
                     ],
                     "owned": true,
                     "niceName": "wrist 3"
+                  },
+                  "speed": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/speed"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "speed"
+                  },
+                  "acceleration": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/acceleration"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "acceleration"
                   }
                 }
               }
@@ -5713,6 +6193,26 @@
                     ],
                     "owned": true,
                     "niceName": "wrist 3"
+                  },
+                  "speed": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/speed"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "speed"
+                  },
+                  "acceleration": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/acceleration"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "acceleration"
                   }
                 }
               }
@@ -5821,6 +6321,26 @@
                     ],
                     "owned": true,
                     "niceName": "wrist 3"
+                  },
+                  "speed": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/speed"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "speed"
+                  },
+                  "acceleration": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/acceleration"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "acceleration"
                   }
                 }
               }
@@ -5929,6 +6449,26 @@
                     ],
                     "owned": true,
                     "niceName": "wrist 3"
+                  },
+                  "speed": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/speed"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "speed"
+                  },
+                  "acceleration": {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/acceleration"
+                      }
+                    ],
+                    "owned": true,
+                    "niceName": "acceleration"
                   }
                 }
               }
@@ -8028,7 +8568,6 @@
             {
               "parameters": [
                 {
-                  "value": false,
                   "minValue": 0,
                   "maxValue": 1,
                   "default": false,
@@ -14181,7 +14720,12 @@
                           {
                             "parameters": [
                               {
-                                "value": 38.44067764282227,
+                                "value": 0.0,
+                                "controlMode": 2,
+                                "reference": {
+                                  "value": "/customVariables/targetJointAngles/variables/speed/speed",
+                                  "controlAddress": "/reference"
+                                },
                                 "minValue": 0.0,
                                 "maxValue": 180.0,
                                 "default": 0.0,
@@ -14191,7 +14735,12 @@
                             "niceName": "speed",
                             "type": "Float",
                             "param": {
-                              "value": 38.44067764282227,
+                              "value": 0.0,
+                              "controlMode": 2,
+                              "reference": {
+                                "value": "/customVariables/targetJointAngles/variables/speed/speed",
+                                "controlAddress": "/reference"
+                              },
                               "minValue": 0.0,
                               "maxValue": 180.0,
                               "default": 0.0,
@@ -14201,7 +14750,12 @@
                           {
                             "parameters": [
                               {
-                                "value": 250.8430023193359,
+                                "value": 0.0,
+                                "controlMode": 2,
+                                "reference": {
+                                  "value": "/customVariables/targetJointAngles/variables/acceleration/acceleration",
+                                  "controlAddress": "/reference"
+                                },
                                 "minValue": 0.0,
                                 "maxValue": 2250.0,
                                 "default": 0.0,
@@ -14211,7 +14765,12 @@
                             "niceName": "acceleration",
                             "type": "Float",
                             "param": {
-                              "value": 250.8430023193359,
+                              "value": 0.0,
+                              "controlMode": 2,
+                              "reference": {
+                                "value": "/customVariables/targetJointAngles/variables/acceleration/acceleration",
+                                "controlAddress": "/reference"
+                              },
                               "minValue": 0.0,
                               "maxValue": 2250.0,
                               "default": 0.0,
@@ -15578,7 +16137,6 @@
             {
               "parameters": [
                 {
-                  "value": true,
                   "colorStatusMap": [
                     0,
                     [
@@ -16900,10 +17458,6 @@
       {
         "parameters": [
           {
-            "value": false,
-            "controlAddress": "/miniMode"
-          },
-          {
             "value": [
               -463.058837890625,
               -504.4705810546875
@@ -17596,12 +18150,6 @@
                     }
                   },
                   {
-                    "parameters": [
-                      {
-                        "value": true,
-                        "controlAddress": "/enabled"
-                      }
-                    ],
                     "niceName": "Smooth",
                     "type": "Smooth",
                     "filterParams": {
@@ -18856,7 +19404,7 @@
             {
               "parameters": [
                 {
-                  "value": 24.0,
+                  "value": 110.0,
                   "controlAddress": "/listSize"
                 },
                 {
@@ -19986,7 +20534,6 @@
                               "controlAddress": "/#9"
                             },
                             {
-                              "value": 0,
                               "controlMode": 2,
                               "reference": {
                                 "value": "/customVariables/minilabColors/variables/r/r",
@@ -22983,7 +23530,7 @@
             {
               "parameters": [
                 {
-                  "value": 24.0,
+                  "value": 84.0,
                   "controlAddress": "/listSize"
                 },
                 {
@@ -23553,10 +24100,6 @@
       {
         "parameters": [
           {
-            "value": true,
-            "controlAddress": "/enabled"
-          },
-          {
             "value": [
               -1185.0,
               -217.0
@@ -23575,7 +24118,7 @@
             {
               "parameters": [
                 {
-                  "value": 24.0,
+                  "value": 84.0,
                   "controlAddress": "/listSize"
                 },
                 {
@@ -23760,8 +24303,8 @@
       }
     ],
     "viewOffset": [
-      180,
-      148
+      411,
+      -284
     ],
     "viewZoom": 1.0,
     "transitions": {
@@ -23775,8 +24318,8 @@
     "comments": {
       "hideInEditor": true,
       "viewOffset": [
-        180,
-        148
+        411,
+        -284
       ],
       "viewZoom": 1.0
     }
@@ -23785,14 +24328,6 @@
     "items": [
       {
         "parameters": [
-          {
-            "value": 0.0,
-            "controlAddress": "/viewStartTime"
-          },
-          {
-            "value": 30.0,
-            "controlAddress": "/viewEndTime"
-          },
           {
             "value": [
               0.2121215611696243,
@@ -23832,10 +24367,6 @@
                     {
                       "value": 30.0,
                       "controlAddress": "/length"
-                    },
-                    {
-                      "value": 0.0,
-                      "controlAddress": "/position"
                     },
                     {
                       "value": [
@@ -23883,7 +24414,8 @@
                       "value": 0.0,
                       "controlAddress": "/simplificationTolerance"
                     }
-                  ]
+                  ],
+                  "editorIsCollapsed": true
                 },
                 "mapping": {
                   "niceName": "Mapping",
@@ -23986,10 +24518,6 @@
                     {
                       "value": 30.0,
                       "controlAddress": "/length"
-                    },
-                    {
-                      "value": 0.0,
-                      "controlAddress": "/position"
                     },
                     {
                       "value": [
@@ -24143,10 +24671,6 @@
                       "controlAddress": "/length"
                     },
                     {
-                      "value": 0.0,
-                      "controlAddress": "/position"
-                    },
-                    {
                       "value": [
                         -355.0,
                         355.0
@@ -24298,10 +24822,6 @@
                       "controlAddress": "/length"
                     },
                     {
-                      "value": 0.0,
-                      "controlAddress": "/position"
-                    },
-                    {
                       "value": [
                         -355.0,
                         355.0
@@ -24340,10 +24860,6 @@
                       "controlAddress": "/arm"
                     },
                     {
-                      "value": false,
-                      "controlAddress": "/autoDisarm"
-                    },
-                    {
                       "value": "Linear (Douglas-Peucker)",
                       "controlAddress": "/simplificationMethod"
                     },
@@ -24351,7 +24867,8 @@
                       "value": 0.0,
                       "controlAddress": "/simplificationTolerance"
                     }
-                  ]
+                  ],
+                  "editorIsCollapsed": true
                 },
                 "mapping": {
                   "niceName": "Mapping",
@@ -24454,10 +24971,6 @@
                     {
                       "value": 30.0,
                       "controlAddress": "/length"
-                    },
-                    {
-                      "value": 0.0,
-                      "controlAddress": "/position"
                     },
                     {
                       "value": [
@@ -24609,10 +25122,6 @@
                     {
                       "value": 30.0,
                       "controlAddress": "/length"
-                    },
-                    {
-                      "value": 0.0,
-                      "controlAddress": "/position"
                     },
                     {
                       "value": [
@@ -24771,10 +25280,6 @@
             "value": 25,
             "hexMode": false,
             "controlAddress": "/fps"
-          },
-          {
-            "value": 0.0,
-            "controlAddress": "/viewStartTime"
           },
           {
             "value": 57.86958694458008,
@@ -38605,10 +39110,6 @@
                     {
                       "value": false,
                       "controlAddress": "/normalize"
-                    },
-                    {
-                      "value": false,
-                      "controlAddress": "/arm"
                     },
                     {
                       "value": "Linear (Douglas-Peucker)",
@@ -52442,10 +52943,6 @@
                     {
                       "value": false,
                       "controlAddress": "/normalize"
-                    },
-                    {
-                      "value": false,
-                      "controlAddress": "/arm"
                     },
                     {
                       "value": "Linear (Douglas-Peucker)",
@@ -66501,10 +66998,6 @@
                       "controlAddress": "/normalize"
                     },
                     {
-                      "value": false,
-                      "controlAddress": "/arm"
-                    },
-                    {
                       "value": "Linear (Douglas-Peucker)",
                       "controlAddress": "/simplificationMethod"
                     },
@@ -80358,10 +80851,6 @@
                     {
                       "value": false,
                       "controlAddress": "/normalize"
-                    },
-                    {
-                      "value": false,
-                      "controlAddress": "/arm"
                     },
                     {
                       "value": "Linear (Douglas-Peucker)",
@@ -94283,10 +94772,6 @@
                     {
                       "value": false,
                       "controlAddress": "/normalize"
-                    },
-                    {
-                      "value": false,
-                      "controlAddress": "/arm"
                     },
                     {
                       "value": "Linear (Douglas-Peucker)",
@@ -108320,10 +108805,6 @@
                       "controlAddress": "/normalize"
                     },
                     {
-                      "value": false,
-                      "controlAddress": "/arm"
-                    },
-                    {
                       "value": "Linear (Douglas-Peucker)",
                       "controlAddress": "/simplificationMethod"
                     },
@@ -108430,18 +108911,13 @@
             0
           ],
           "viewZoom": 1.0
-        },
-        "editing": true
+        }
       },
       {
         "parameters": [
           {
             "value": 90.0,
             "controlAddress": "/totalTime"
-          },
-          {
-            "value": 0.0,
-            "controlAddress": "/viewStartTime"
           },
           {
             "value": 90.0,
@@ -108488,10 +108964,6 @@
                       "controlAddress": "/length"
                     },
                     {
-                      "value": 0.0,
-                      "controlAddress": "/position"
-                    },
-                    {
                       "value": [
                         -355.0,
                         355.0
@@ -108524,12 +108996,9 @@
                     {
                       "value": false,
                       "controlAddress": "/normalize"
-                    },
-                    {
-                      "value": false,
-                      "controlAddress": "/arm"
                     }
-                  ]
+                  ],
+                  "editorIsCollapsed": true
                 },
                 "mapping": {
                   "niceName": "Mapping",
@@ -108634,10 +109103,6 @@
                       "controlAddress": "/length"
                     },
                     {
-                      "value": 0.0,
-                      "controlAddress": "/position"
-                    },
-                    {
                       "value": [
                         -355.0,
                         355.0
@@ -108670,12 +109135,9 @@
                     {
                       "value": false,
                       "controlAddress": "/normalize"
-                    },
-                    {
-                      "value": false,
-                      "controlAddress": "/arm"
                     }
-                  ]
+                  ],
+                  "editorIsCollapsed": true
                 },
                 "mapping": {
                   "niceName": "Mapping",
@@ -108780,10 +109242,6 @@
                       "controlAddress": "/length"
                     },
                     {
-                      "value": 0.0,
-                      "controlAddress": "/position"
-                    },
-                    {
                       "value": [
                         -355.0,
                         355.0
@@ -108845,12 +109303,9 @@
                     {
                       "value": false,
                       "controlAddress": "/normalize"
-                    },
-                    {
-                      "value": false,
-                      "controlAddress": "/arm"
                     }
-                  ]
+                  ],
+                  "editorIsCollapsed": true
                 },
                 "mapping": {
                   "niceName": "Mapping",
@@ -108955,10 +109410,6 @@
                       "controlAddress": "/length"
                     },
                     {
-                      "value": 0.0,
-                      "controlAddress": "/position"
-                    },
-                    {
                       "value": [
                         -355.0,
                         355.0
@@ -108995,12 +109446,9 @@
                     {
                       "value": true,
                       "controlAddress": "/arm"
-                    },
-                    {
-                      "value": false,
-                      "controlAddress": "/autoDisarm"
                     }
-                  ]
+                  ],
+                  "editorIsCollapsed": true
                 },
                 "mapping": {
                   "niceName": "Mapping",
@@ -109105,10 +109553,6 @@
                       "controlAddress": "/length"
                     },
                     {
-                      "value": 0.0,
-                      "controlAddress": "/position"
-                    },
-                    {
                       "value": [
                         -355.0,
                         355.0
@@ -109177,12 +109621,9 @@
                     {
                       "value": false,
                       "controlAddress": "/normalize"
-                    },
-                    {
-                      "value": false,
-                      "controlAddress": "/arm"
                     }
-                  ]
+                  ],
+                  "editorIsCollapsed": true
                 },
                 "mapping": {
                   "niceName": "Mapping",
@@ -109287,10 +109728,6 @@
                       "controlAddress": "/length"
                     },
                     {
-                      "value": 0.0,
-                      "controlAddress": "/position"
-                    },
-                    {
                       "value": [
                         -355.0,
                         355.0
@@ -109323,12 +109760,9 @@
                     {
                       "value": false,
                       "controlAddress": "/normalize"
-                    },
-                    {
-                      "value": false,
-                      "controlAddress": "/arm"
                     }
-                  ]
+                  ],
+                  "editorIsCollapsed": true
                 },
                 "mapping": {
                   "niceName": "Mapping",
@@ -109765,10 +110199,6 @@
                     {
                       "value": false,
                       "controlAddress": "/normalize"
-                    },
-                    {
-                      "value": false,
-                      "controlAddress": "/arm"
                     }
                   ],
                   "editorIsCollapsed": true
@@ -110200,10 +110630,6 @@
                     {
                       "value": false,
                       "controlAddress": "/normalize"
-                    },
-                    {
-                      "value": false,
-                      "controlAddress": "/arm"
                     }
                   ],
                   "editorIsCollapsed": true
@@ -110787,10 +111213,6 @@
                     {
                       "value": false,
                       "controlAddress": "/normalize"
-                    },
-                    {
-                      "value": false,
-                      "controlAddress": "/arm"
                     }
                   ],
                   "editorIsCollapsed": true
@@ -111184,10 +111606,6 @@
                     {
                       "value": false,
                       "controlAddress": "/normalize"
-                    },
-                    {
-                      "value": false,
-                      "controlAddress": "/arm"
                     }
                   ],
                   "editorIsCollapsed": true
@@ -111847,10 +112265,6 @@
                     {
                       "value": false,
                       "controlAddress": "/normalize"
-                    },
-                    {
-                      "value": false,
-                      "controlAddress": "/arm"
                     }
                   ],
                   "editorIsCollapsed": true
@@ -112282,10 +112696,6 @@
                     {
                       "value": false,
                       "controlAddress": "/normalize"
-                    },
-                    {
-                      "value": false,
-                      "controlAddress": "/arm"
                     }
                   ],
                   "editorIsCollapsed": true
@@ -112391,7 +112801,11 @@
       {
         "parameters": [
           {
-            "value": 5.963031768798828,
+            "value": 0.0,
+            "controlAddress": "/viewStartTime"
+          },
+          {
+            "value": 1.0,
             "controlAddress": "/viewEndTime"
           },
           {
@@ -112422,1129 +112836,6 @@
               "triggers": {
                 "hideInEditor": true,
                 "containers": {
-                  "trigger36": {
-                    "parameters": [
-                      {
-                        "value": 4.0,
-                        "controlAddress": "/time"
-                      },
-                      {
-                        "value": 0.2,
-                        "controlAddress": "/flagY"
-                      }
-                    ],
-                    "niceName": "Trigger 36",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger35": {
-                    "parameters": [
-                      {
-                        "value": 4.0,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 35",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger34": {
-                    "parameters": [
-                      {
-                        "value": 4.0,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 34",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger33": {
-                    "parameters": [
-                      {
-                        "value": 4.0,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 33",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger32": {
-                    "parameters": [
-                      {
-                        "value": 4.0,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 32",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger31": {
-                    "parameters": [
-                      {
-                        "value": 4.0,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 31",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger30": {
-                    "parameters": [
-                      {
-                        "value": 4.0,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 30",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger29": {
-                    "parameters": [
-                      {
-                        "value": 4.0,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 29",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger28": {
-                    "parameters": [
-                      {
-                        "value": 4.0,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 28",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger27": {
-                    "parameters": [
-                      {
-                        "value": 4.0,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 27",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger26": {
-                    "parameters": [
-                      {
-                        "value": 4.0,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 26",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger25": {
-                    "parameters": [
-                      {
-                        "value": 4.0,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 25",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger24": {
-                    "parameters": [
-                      {
-                        "value": 4.0,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 24",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger23": {
-                    "parameters": [
-                      {
-                        "value": 4.0,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 23",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger22": {
-                    "parameters": [
-                      {
-                        "value": 4.0,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 22",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger21": {
-                    "parameters": [
-                      {
-                        "value": 3.72,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 21",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        },
-                        {
-                          "niceName": "Consequence 1",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger20": {
-                    "parameters": [
-                      {
-                        "value": 3.72,
-                        "controlAddress": "/time"
-                      },
-                      {
-                        "value": 1.0,
-                        "controlAddress": "/flagY"
-                      }
-                    ],
-                    "niceName": "Trigger 20",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger19": {
-                    "parameters": [
-                      {
-                        "value": 4.039999961853027,
-                        "controlAddress": "/time"
-                      },
-                      {
-                        "value": 0.4601942002773285,
-                        "controlAddress": "/flagY"
-                      }
-                    ],
-                    "niceName": "Trigger 19",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger18": {
-                    "parameters": [
-                      {
-                        "value": 2.24,
-                        "controlAddress": "/time"
-                      },
-                      {
-                        "value": 0.6000000000000001,
-                        "controlAddress": "/flagY"
-                      }
-                    ],
-                    "niceName": "Trigger 18",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger17": {
-                    "parameters": [
-                      {
-                        "value": 2.24,
-                        "controlAddress": "/time"
-                      },
-                      {
-                        "value": 0.4,
-                        "controlAddress": "/flagY"
-                      }
-                    ],
-                    "niceName": "Trigger 17",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger16": {
-                    "parameters": [
-                      {
-                        "value": 2.24,
-                        "controlAddress": "/time"
-                      },
-                      {
-                        "value": 0.2,
-                        "controlAddress": "/flagY"
-                      }
-                    ],
-                    "niceName": "Trigger 16",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger15": {
-                    "parameters": [
-                      {
-                        "value": 2.24,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 15",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger14": {
-                    "parameters": [
-                      {
-                        "value": 0.88,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 14",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger13": {
-                    "parameters": [
-                      {
-                        "value": 0.88,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 13",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence",
-                          "commandModule": "customVariables",
-                          "commandPath": "",
-                          "commandType": "Set Value",
-                          "command": {
-                            "parameters": [
-                              {
-                                "value": "/targetJointAngles/base",
-                                "controlAddress": "/target"
-                              },
-                              {
-                                "value": "All",
-                                "controlAddress": "/component"
-                              },
-                              {
-                                "value": "Equals",
-                                "controlAddress": "/operator"
-                              },
-                              {
-                                "value": 68.95684814453125,
-                                "controlAddress": "/value"
-                              }
-                            ],
-                            "paramLinks": {
-                            }
-                          }
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger12": {
-                    "parameters": [
-                      {
-                        "value": 0.88,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 12",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger11": {
-                    "parameters": [
-                      {
-                        "value": 0.88,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 11",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence",
-                          "commandModule": "customVariables",
-                          "commandPath": "",
-                          "commandType": "Set Value",
-                          "command": {
-                            "parameters": [
-                              {
-                                "value": "/targetJointAngles/base",
-                                "controlAddress": "/target"
-                              },
-                              {
-                                "value": "All",
-                                "controlAddress": "/component"
-                              },
-                              {
-                                "value": "Equals",
-                                "controlAddress": "/operator"
-                              },
-                              {
-                                "value": 61.29498291015625,
-                                "controlAddress": "/value"
-                              }
-                            ],
-                            "paramLinks": {
-                            }
-                          }
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger10": {
-                    "parameters": [
-                      {
-                        "value": 0.88,
-                        "controlAddress": "/time"
-                      },
-                      {
-                        "value": 0.6000000000000001,
-                        "controlAddress": "/flagY"
-                      }
-                    ],
-                    "niceName": "Trigger 10",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger9": {
-                    "parameters": [
-                      {
-                        "value": 0.88,
-                        "controlAddress": "/time"
-                      },
-                      {
-                        "value": 0.4,
-                        "controlAddress": "/flagY"
-                      }
-                    ],
-                    "niceName": "Trigger 9",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger8": {
-                    "parameters": [
-                      {
-                        "value": 0.88,
-                        "controlAddress": "/time"
-                      },
-                      {
-                        "value": 0.2,
-                        "controlAddress": "/flagY"
-                      }
-                    ],
-                    "niceName": "Trigger 8",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger7": {
-                    "parameters": [
-                      {
-                        "value": 0.88,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 7",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger6": {
-                    "parameters": [
-                      {
-                        "value": 0.88,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 6",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger5": {
-                    "parameters": [
-                      {
-                        "value": 0.88,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 5",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger4": {
-                    "parameters": [
-                      {
-                        "value": 0.88,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 4",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger2": {
-                    "parameters": [
-                      {
-                        "value": 0.88,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 2",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "containers": {
-                        "consequence": {
-                          "niceName": "Consequence",
-                          "type": "Consequence",
-                          "commandModule": "customVariables",
-                          "commandPath": "",
-                          "commandType": "Set Value",
-                          "command": {
-                            "parameters": [
-                              {
-                                "value": "",
-                                "controlAddress": "/target"
-                              },
-                              {
-                                "value": "All",
-                                "controlAddress": "/component"
-                              }
-                            ],
-                            "paramLinks": {
-                            }
-                          }
-                        },
-                        "yeh": {
-                          "owned": true,
-                          "niceName": "yeh"
-                        }
-                      },
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence",
-                          "commandModule": "customVariables",
-                          "commandPath": "",
-                          "commandType": "Set Value",
-                          "command": {
-                            "parameters": [
-                              {
-                                "value": "",
-                                "controlAddress": "/target"
-                              },
-                              {
-                                "value": "All",
-                                "controlAddress": "/component"
-                              }
-                            ],
-                            "paramLinks": {
-                            }
-                          }
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  "trigger1": {
-                    "parameters": [
-                      {
-                        "value": 0.88,
-                        "controlAddress": "/time"
-                      },
-                      {
-                        "value": 0.6000000000000001,
-                        "controlAddress": "/flagY"
-                      }
-                    ],
-                    "niceName": "Trigger 1",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
                   "trigger": {
                     "parameters": [
                       {
@@ -113655,1129 +112946,6 @@
                   }
                 },
                 "items": [
-                  {
-                    "parameters": [
-                      {
-                        "value": 0.88,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 14",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 4.0,
-                        "controlAddress": "/time"
-                      },
-                      {
-                        "value": 0.2,
-                        "controlAddress": "/flagY"
-                      }
-                    ],
-                    "niceName": "Trigger 36",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 4.0,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 35",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 4.0,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 34",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 4.0,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 33",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 4.0,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 32",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 4.0,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 31",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 4.0,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 30",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 4.0,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 29",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 4.0,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 28",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 4.0,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 27",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 4.0,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 26",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 4.0,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 25",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 4.0,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 24",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 4.0,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 23",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 4.0,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 22",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 3.72,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 21",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        },
-                        {
-                          "niceName": "Consequence 1",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 3.72,
-                        "controlAddress": "/time"
-                      },
-                      {
-                        "value": 1.0,
-                        "controlAddress": "/flagY"
-                      }
-                    ],
-                    "niceName": "Trigger 20",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 2.24,
-                        "controlAddress": "/time"
-                      },
-                      {
-                        "value": 0.6000000000000001,
-                        "controlAddress": "/flagY"
-                      }
-                    ],
-                    "niceName": "Trigger 18",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 2.24,
-                        "controlAddress": "/time"
-                      },
-                      {
-                        "value": 0.4,
-                        "controlAddress": "/flagY"
-                      }
-                    ],
-                    "niceName": "Trigger 17",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 2.24,
-                        "controlAddress": "/time"
-                      },
-                      {
-                        "value": 0.2,
-                        "controlAddress": "/flagY"
-                      }
-                    ],
-                    "niceName": "Trigger 16",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 2.24,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 15",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 0.88,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 13",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence",
-                          "commandModule": "customVariables",
-                          "commandPath": "",
-                          "commandType": "Set Value",
-                          "command": {
-                            "parameters": [
-                              {
-                                "value": "/targetJointAngles/base",
-                                "controlAddress": "/target"
-                              },
-                              {
-                                "value": "All",
-                                "controlAddress": "/component"
-                              },
-                              {
-                                "value": "Equals",
-                                "controlAddress": "/operator"
-                              },
-                              {
-                                "value": 68.95684814453125,
-                                "controlAddress": "/value"
-                              }
-                            ],
-                            "paramLinks": {
-                            }
-                          }
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 0.88,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 12",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 0.88,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 11",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence",
-                          "commandModule": "customVariables",
-                          "commandPath": "",
-                          "commandType": "Set Value",
-                          "command": {
-                            "parameters": [
-                              {
-                                "value": "/targetJointAngles/base",
-                                "controlAddress": "/target"
-                              },
-                              {
-                                "value": "All",
-                                "controlAddress": "/component"
-                              },
-                              {
-                                "value": "Equals",
-                                "controlAddress": "/operator"
-                              },
-                              {
-                                "value": 61.29498291015625,
-                                "controlAddress": "/value"
-                              }
-                            ],
-                            "paramLinks": {
-                            }
-                          }
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 0.88,
-                        "controlAddress": "/time"
-                      },
-                      {
-                        "value": 0.6000000000000001,
-                        "controlAddress": "/flagY"
-                      }
-                    ],
-                    "niceName": "Trigger 10",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 0.88,
-                        "controlAddress": "/time"
-                      },
-                      {
-                        "value": 0.4,
-                        "controlAddress": "/flagY"
-                      }
-                    ],
-                    "niceName": "Trigger 9",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 0.88,
-                        "controlAddress": "/time"
-                      },
-                      {
-                        "value": 0.2,
-                        "controlAddress": "/flagY"
-                      }
-                    ],
-                    "niceName": "Trigger 8",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 4.039999961853027,
-                        "controlAddress": "/time"
-                      },
-                      {
-                        "value": 0.4601942002773285,
-                        "controlAddress": "/flagY"
-                      }
-                    ],
-                    "niceName": "Trigger 19",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 0.88,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 7",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 0.88,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 6",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 0.88,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 5",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 0.88,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 4",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence"
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 0.88,
-                        "controlAddress": "/time"
-                      }
-                    ],
-                    "niceName": "Trigger 2",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "parameters": [
-                        {
-                          "value": false,
-                          "controlAddress": "/cancelDelaysOnTrigger"
-                        }
-                      ],
-                      "containers": {
-                        "consequence": {
-                          "niceName": "Consequence",
-                          "type": "Consequence",
-                          "commandModule": "customVariables",
-                          "commandPath": "",
-                          "commandType": "Set Value",
-                          "command": {
-                            "parameters": [
-                              {
-                                "value": "",
-                                "controlAddress": "/target"
-                              },
-                              {
-                                "value": "All",
-                                "controlAddress": "/component"
-                              }
-                            ],
-                            "paramLinks": {
-                            }
-                          }
-                        },
-                        "yeh": {
-                          "owned": true,
-                          "niceName": "yeh"
-                        }
-                      },
-                      "items": [
-                        {
-                          "niceName": "Consequence",
-                          "type": "Consequence",
-                          "commandModule": "customVariables",
-                          "commandPath": "",
-                          "commandType": "Set Value",
-                          "command": {
-                            "parameters": [
-                              {
-                                "value": "",
-                                "controlAddress": "/target"
-                              },
-                              {
-                                "value": "All",
-                                "controlAddress": "/component"
-                              }
-                            ],
-                            "paramLinks": {
-                            }
-                          }
-                        }
-                      ],
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
-                  {
-                    "parameters": [
-                      {
-                        "value": 0.88,
-                        "controlAddress": "/time"
-                      },
-                      {
-                        "value": 0.6000000000000001,
-                        "controlAddress": "/flagY"
-                      }
-                    ],
-                    "niceName": "Trigger 1",
-                    "type": "TimeTrigger",
-                    "consequences": {
-                      "viewOffset": [
-                        0,
-                        0
-                      ],
-                      "viewZoom": 1.0
-                    }
-                  },
                   {
                     "parameters": [
                       {
@@ -114915,7 +113083,7 @@
                       "controlAddress": "/length"
                     },
                     {
-                      "value": 0.0,
+                      "value": 0.6000000238418579,
                       "controlAddress": "/position"
                     },
                     {
@@ -115102,7 +113270,8 @@
             0
           ],
           "viewZoom": 1.0
-        }
+        },
+        "editing": true
       },
       {
         "parameters": [
@@ -115227,10 +113396,6 @@
                             {
                               "value": 30.0,
                               "controlAddress": "/length"
-                            },
-                            {
-                              "value": 0.0,
-                              "controlAddress": "/position"
                             },
                             {
                               "value": [
