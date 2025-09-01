@@ -5,6 +5,7 @@ import rtde_receive
 import threading
 import time
 import math
+import socket
 
 ROBOT_IP = "192.168.12.1"
 OSC_LISTEN_IP = "0.0.0.0"
@@ -18,7 +19,10 @@ rtde_c = rtde_control.RTDEControlInterface(ROBOT_IP)
 rtde_r = rtde_receive.RTDEReceiveInterface(ROBOT_IP)
 
 # OSC client (for sending data)
+# client = udp_client.SimpleUDPClient(OSC_SEND_IP, OSC_SEND_PORT)
+
 client = udp_client.SimpleUDPClient(OSC_SEND_IP, OSC_SEND_PORT)
+client._sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
 
 def deg_to_rad(deg):
     return deg * math.pi / 180.0
