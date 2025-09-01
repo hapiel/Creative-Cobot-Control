@@ -131,8 +131,8 @@ def handle_teachmode(unused_addr, flag):
             tcp_speed = rtde_r.getActualTCPSpeed()
             speed_sum = sum(abs(tcp_speed[i]) for i in range(6))
             while speed_sum > 0.1:
-                print(f"Current TCP speed: {tcp_speed}, waiting to end teach mode...")
-                time.sleep(0.1)
+                # print(f"Current TCP speed: {tcp_speed}, waiting to end teach mode...")
+                # time.sleep(0.1)
                 tcp_speed = rtde_r.getActualTCPSpeed()
                 # print(tcp_speed)
                 speed_sum = sum(abs(tcp_speed[i]) for i in range(6))
@@ -196,6 +196,10 @@ if __name__ == "__main__":
             # Send TCP force (6 components) in one message
             tcp_force = rtde_r.getActualTCPForce()
             client.send_message("/tcp_force", tcp_force)
+            
+            # joint_torque = rtde_c.getJointTorques()
+            # client.send_message("/joint_torque", joint_torque)
+            # DOESN"T WORK VERY WELL WITH TEACH MODE, FIXME
 
             # Send TCP pose (x, y, z in meters, rx, ry, rz in degrees)
             tcp_pose = rtde_r.getActualTCPPose()  # [x, y, z, rx, ry, rz]
@@ -206,7 +210,7 @@ if __name__ == "__main__":
         except Exception as e:
             print(f"Error in RTDE loop: {e}")
 
-        time.sleep(0.001)  # 30Hz loop frequency, adjust as needed
+        time.sleep(0.01)  # 100Hz loop frequency, adjust as needed
         
         
         
