@@ -30,7 +30,7 @@
                   "niceName": "force 0",
                   "removable": false,
                   "type": "Float",
-                  "value": -2.885674238204956
+                  "value": 7.367921352386475
                 }
               ],
               "type": "Float Parameter"
@@ -51,7 +51,7 @@
                   "niceName": "force 1",
                   "removable": false,
                   "type": "Float",
-                  "value": 29.89373779296875
+                  "value": 11.17272758483887
                 }
               ],
               "type": "Float Parameter"
@@ -72,7 +72,7 @@
                   "niceName": "force 2",
                   "removable": false,
                   "type": "Float",
-                  "value": -0.869182825088501
+                  "value": 0.3784637153148651
                 }
               ],
               "type": "Float Parameter"
@@ -93,7 +93,7 @@
                   "niceName": "force 3",
                   "removable": false,
                   "type": "Float",
-                  "value": -0.8691661357879639
+                  "value": 0.3784637153148651
                 }
               ],
               "type": "Float Parameter"
@@ -114,7 +114,7 @@
                   "niceName": "force 4",
                   "removable": false,
                   "type": "Float",
-                  "value": -0.01002511195838451
+                  "value": 0.05618118867278099
                 }
               ],
               "type": "Float Parameter"
@@ -135,7 +135,7 @@
                   "niceName": "force 5",
                   "removable": false,
                   "type": "Float",
-                  "value": 20.0
+                  "value": -20.0
                 }
               ],
               "type": "Float Parameter"
@@ -153,7 +153,7 @@
                   "niceName": "sum",
                   "removable": false,
                   "type": "Float",
-                  "value": 60.05571746826172
+                  "value": 22.68135070800781
                 }
               ],
               "type": "Float Parameter"
@@ -11445,10 +11445,6 @@
                   "value": false
                 },
                 {
-                  "controlAddress": "/style",
-                  "value": "Default"
-                },
-                {
                   "controlAddress": "/target",
                   "value": "/modules/oscRobotdriver/scripts/create_timetrigger_movej/params/sequenceTarget"
                 },
@@ -12664,23 +12660,23 @@
   "layout": {
     "mainLayout": {
       "direction": 2,
-      "height": 1340,
+      "height": 973,
       "shifters": [
         {
           "direction": 2,
-          "height": 1340,
+          "height": 973,
           "shifters": [
             {
               "direction": 1,
-              "height": 934,
+              "height": 751,
               "shifters": [
                 {
                   "direction": 2,
-                  "height": 934,
+                  "height": 751,
                   "shifters": [
                     {
                       "currentContent": "Modules",
-                      "height": 456,
+                      "height": 365,
                       "tabs": [
                         {
                           "name": "Modules"
@@ -12691,7 +12687,7 @@
                     },
                     {
                       "currentContent": "Custom Variables",
-                      "height": 472,
+                      "height": 380,
                       "tabs": [
                         {
                           "name": "Custom Variables"
@@ -12706,7 +12702,7 @@
                 },
                 {
                   "currentContent": "State Machine",
-                  "height": 934,
+                  "height": 751,
                   "tabs": [
                     {
                       "name": "State Machine"
@@ -12722,11 +12718,11 @@
                     }
                   ],
                   "type": 0,
-                  "width": 998
+                  "width": 960
                 },
                 {
                   "currentContent": "Inspector",
-                  "height": 934,
+                  "height": 751,
                   "tabs": [
                     {
                       "name": "Inspector"
@@ -12737,15 +12733,15 @@
                 }
               ],
               "type": 1,
-              "width": 1718
+              "width": 1680
             },
             {
               "direction": 1,
-              "height": 400,
+              "height": 216,
               "shifters": [
                 {
                   "currentContent": "Sequences",
-                  "height": 400,
+                  "height": 216,
                   "tabs": [
                     {
                       "name": "Sequences"
@@ -12756,18 +12752,18 @@
                 },
                 {
                   "currentContent": "Sequence Editor",
-                  "height": 400,
+                  "height": 216,
                   "tabs": [
                     {
                       "name": "Sequence Editor"
                     }
                   ],
                   "type": 0,
-                  "width": 964
+                  "width": 926
                 },
                 {
                   "currentContent": "Logger",
-                  "height": 400,
+                  "height": 216,
                   "tabs": [
                     {
                       "name": "Help"
@@ -12784,15 +12780,15 @@
                 }
               ],
               "type": 1,
-              "width": 1718
+              "width": 1680
             }
           ],
           "type": 1,
-          "width": 1718
+          "width": 1680
         }
       ],
       "type": 1,
-      "width": 1718
+      "width": 1680
     },
     "windows": null
   },
@@ -12802,88 +12798,6 @@
   },
   "modules": {
     "items": [
-      {
-        "niceName": "Behringer X-Touch Extender",
-        "parameters": [
-          {
-            "controlAddress": "/enabled",
-            "value": false
-          }
-        ],
-        "params": {
-          "containers": {
-            "pass_through": {}
-          },
-          "parameters": [
-            {
-              "controlAddress": "/autoAdd",
-              "value": false
-            },
-            {
-              "controlAddress": "/devices",
-              "value": [
-                "",
-                ""
-              ]
-            }
-          ]
-        },
-        "scripts": {
-          "items": [
-            {
-              "niceName": "BehringerExtender",
-              "scriptParams": {
-                "hideInEditor": true
-              },
-              "type": "BaseItem"
-            }
-          ],
-          "viewOffset": [
-            0,
-            0
-          ],
-          "viewZoom": 1.0
-        },
-        "templates": {
-          "viewOffset": [
-            0,
-            0
-          ],
-          "viewZoom": 1.0
-        },
-        "type": "Behringer X-Touch Extender",
-        "values": {
-          "containers": {
-            "infos": {},
-            "strips": {
-              "containers": {
-                "strip1": {},
-                "strip2": {
-                  "editorIsCollapsed": true
-                },
-                "strip3": {
-                  "editorIsCollapsed": true
-                },
-                "strip4": {
-                  "editorIsCollapsed": true
-                },
-                "strip5": {
-                  "editorIsCollapsed": true
-                },
-                "strip6": {
-                  "editorIsCollapsed": true
-                },
-                "strip7": {
-                  "editorIsCollapsed": true
-                },
-                "strip8": {
-                  "editorIsCollapsed": true
-                }
-              }
-            }
-          }
-        }
-      },
       {
         "niceName": "Gamepad",
         "parameters": [
@@ -14149,7 +14063,7 @@
               "removable": true,
               "shortName": "_joints_0",
               "type": "Float",
-              "value": -107.7159271240234
+              "value": -57.74497604370117
             },
             {
               "controlAddress": "/_joints_1",
@@ -14161,7 +14075,7 @@
               "removable": true,
               "shortName": "_joints_1",
               "type": "Float",
-              "value": -54.22890472412109
+              "value": -67.7437973022461
             },
             {
               "controlAddress": "/_joints_2",
@@ -14173,7 +14087,7 @@
               "removable": true,
               "shortName": "_joints_2",
               "type": "Float",
-              "value": 11.73956489562988
+              "value": -115.665283203125
             },
             {
               "controlAddress": "/_joints_3",
@@ -14185,7 +14099,7 @@
               "removable": true,
               "shortName": "_joints_3",
               "type": "Float",
-              "value": -19.31459045410156
+              "value": -196.0388488769531
             },
             {
               "controlAddress": "/_joints_4",
@@ -14197,7 +14111,7 @@
               "removable": true,
               "shortName": "_joints_4",
               "type": "Float",
-              "value": -280.9804992675781
+              "value": 115.4506912231445
             },
             {
               "controlAddress": "/_joints_5",
@@ -14209,7 +14123,7 @@
               "removable": true,
               "shortName": "_joints_5",
               "type": "Float",
-              "value": -122.7810821533203
+              "value": 13.30322074890137
             },
             {
               "controlAddress": "/_tcp_force_0",
@@ -14221,7 +14135,7 @@
               "removable": true,
               "shortName": "_tcp_force_0",
               "type": "Float",
-              "value": -2.885674238204956
+              "value": 7.367921352386475
             },
             {
               "controlAddress": "/_tcp_force_1",
@@ -14233,7 +14147,7 @@
               "removable": true,
               "shortName": "_tcp_force_1",
               "type": "Float",
-              "value": 29.89373779296875
+              "value": 11.17272758483887
             },
             {
               "controlAddress": "/_tcp_force_2",
@@ -14245,7 +14159,7 @@
               "removable": true,
               "shortName": "_tcp_force_2",
               "type": "Float",
-              "value": 33.97857284545898
+              "value": 1.897770643234253
             },
             {
               "controlAddress": "/_tcp_force_3",
@@ -14257,7 +14171,7 @@
               "removable": true,
               "shortName": "_tcp_force_3",
               "type": "Float",
-              "value": -0.869182825088501
+              "value": 0.3784637153148651
             },
             {
               "controlAddress": "/_tcp_force_4",
@@ -14269,7 +14183,7 @@
               "removable": true,
               "shortName": "_tcp_force_4",
               "type": "Float",
-              "value": -0.01002511195838451
+              "value": 0.05618118867278099
             },
             {
               "controlAddress": "/_tcp_force_5",
@@ -14281,7 +14195,7 @@
               "removable": true,
               "shortName": "_tcp_force_5",
               "type": "Float",
-              "value": -0.05169921740889549
+              "value": 1.808284997940063
             },
             {
               "controlAddress": "/_tcp_pose_0",
@@ -14293,7 +14207,7 @@
               "removable": true,
               "shortName": "_tcp_pose_0",
               "type": "Float",
-              "value": -0.01049260515719652
+              "value": -0.05810987949371338
             },
             {
               "controlAddress": "/_tcp_pose_1",
@@ -14305,7 +14219,7 @@
               "removable": true,
               "shortName": "_tcp_pose_1",
               "type": "Float",
-              "value": 0.5047075748443604
+              "value": 0.08326764404773712
             },
             {
               "controlAddress": "/_tcp_pose_2",
@@ -14317,7 +14231,7 @@
               "removable": true,
               "shortName": "_tcp_pose_2",
               "type": "Float",
-              "value": 0.6555525660514832
+              "value": 0.353993833065033
             },
             {
               "controlAddress": "/_tcp_pose_3",
@@ -14329,7 +14243,7 @@
               "removable": true,
               "shortName": "_tcp_pose_3",
               "type": "Float",
-              "value": -29.62183380126953
+              "value": -14.00961875915527
             },
             {
               "controlAddress": "/_tcp_pose_4",
@@ -14341,7 +14255,7 @@
               "removable": true,
               "shortName": "_tcp_pose_4",
               "type": "Float",
-              "value": 8.541240692138672
+              "value": -94.20659637451172
             },
             {
               "controlAddress": "/_tcp_pose_5",
@@ -14353,7 +14267,7 @@
               "removable": true,
               "shortName": "_tcp_pose_5",
               "type": "Float",
-              "value": 41.00827407836914
+              "value": -126.1091461181641
             }
           ]
         }
@@ -99629,10 +99543,6 @@
           {
             "controlAddress": "/viewEndTime",
             "value": 1.0
-          },
-          {
-            "controlAddress": "/viewStartTime",
-            "value": 0.0
           }
         ],
         "type": "Sequence"
@@ -100316,8 +100226,8 @@
     "comments": {
       "hideInEditor": true,
       "viewOffset": [
-        411,
-        -284
+        70,
+        41
       ],
       "viewZoom": 1.0
     },
@@ -105494,7 +105404,7 @@
                 },
                 {
                   "controlAddress": "/listSize",
-                  "value": 110.0
+                  "value": 24.0
                 }
               ],
               "type": "Multiplex"
@@ -106522,15 +106432,6 @@
                     "conditions": {
                       "items": [
                         {
-                          "comparator": {
-                            "hideInEditor": true,
-                            "parameters": [
-                              {
-                                "controlAddress": "/reference",
-                                "value": false
-                              }
-                            ]
-                          },
                           "niceName": "From Input Value",
                           "parameters": [
                             {
@@ -106674,15 +106575,6 @@
                     "conditions": {
                       "items": [
                         {
-                          "comparator": {
-                            "hideInEditor": true,
-                            "parameters": [
-                              {
-                                "controlAddress": "/reference",
-                                "value": false
-                              }
-                            ]
-                          },
                           "niceName": "From Input Value",
                           "parameters": [
                             {
@@ -106826,15 +106718,6 @@
                     "conditions": {
                       "items": [
                         {
-                          "comparator": {
-                            "hideInEditor": true,
-                            "parameters": [
-                              {
-                                "controlAddress": "/reference",
-                                "value": false
-                              }
-                            ]
-                          },
                           "niceName": "From Input Value",
                           "parameters": [
                             {
@@ -106986,15 +106869,6 @@
                     "conditions": {
                       "items": [
                         {
-                          "comparator": {
-                            "hideInEditor": true,
-                            "parameters": [
-                              {
-                                "controlAddress": "/reference",
-                                "value": false
-                              }
-                            ]
-                          },
                           "niceName": "From Input Value",
                           "parameters": [
                             {
@@ -107146,15 +107020,6 @@
                     "conditions": {
                       "items": [
                         {
-                          "comparator": {
-                            "hideInEditor": true,
-                            "parameters": [
-                              {
-                                "controlAddress": "/reference",
-                                "value": false
-                              }
-                            ]
-                          },
                           "niceName": "From Input Value",
                           "parameters": [
                             {
@@ -107302,15 +107167,6 @@
                     "conditions": {
                       "items": [
                         {
-                          "comparator": {
-                            "hideInEditor": true,
-                            "parameters": [
-                              {
-                                "controlAddress": "/reference",
-                                "value": false
-                              }
-                            ]
-                          },
                           "niceName": "From Input Value",
                           "parameters": [
                             {
@@ -107503,15 +107359,6 @@
                     "conditions": {
                       "items": [
                         {
-                          "comparator": {
-                            "hideInEditor": true,
-                            "parameters": [
-                              {
-                                "controlAddress": "/reference",
-                                "value": false
-                              }
-                            ]
-                          },
                           "niceName": "From Input Value",
                           "parameters": [
                             {
@@ -107617,15 +107464,6 @@
                     "conditions": {
                       "items": [
                         {
-                          "comparator": {
-                            "hideInEditor": true,
-                            "parameters": [
-                              {
-                                "controlAddress": "/reference",
-                                "value": false
-                              }
-                            ]
-                          },
                           "niceName": "From Input Value",
                           "parameters": [
                             {
@@ -107731,15 +107569,6 @@
                     "conditions": {
                       "items": [
                         {
-                          "comparator": {
-                            "hideInEditor": true,
-                            "parameters": [
-                              {
-                                "controlAddress": "/reference",
-                                "value": false
-                              }
-                            ]
-                          },
                           "niceName": "From Input Value",
                           "parameters": [
                             {
@@ -107845,15 +107674,6 @@
                     "conditions": {
                       "items": [
                         {
-                          "comparator": {
-                            "hideInEditor": true,
-                            "parameters": [
-                              {
-                                "controlAddress": "/reference",
-                                "value": false
-                              }
-                            ]
-                          },
                           "niceName": "From Input Value",
                           "parameters": [
                             {
@@ -107959,15 +107779,6 @@
                     "conditions": {
                       "items": [
                         {
-                          "comparator": {
-                            "hideInEditor": true,
-                            "parameters": [
-                              {
-                                "controlAddress": "/reference",
-                                "value": false
-                              }
-                            ]
-                          },
                           "niceName": "From Input Value",
                           "parameters": [
                             {
@@ -108073,15 +107884,6 @@
                     "conditions": {
                       "items": [
                         {
-                          "comparator": {
-                            "hideInEditor": true,
-                            "parameters": [
-                              {
-                                "controlAddress": "/reference",
-                                "value": false
-                              }
-                            ]
-                          },
                           "niceName": "From Input Value",
                           "parameters": [
                             {
@@ -108689,7 +108491,7 @@
                             "niceName": "#3",
                             "param": {
                               "controlAddress": "/states/servo/processors/servoJ/outputs/mappingOutput/command/arguments/#3/#1",
-                              "value": 11.74369049072266
+                              "value": -122.7797164916992
                             },
                             "paramLink": {
                               "linkType": 1,
@@ -108698,7 +108500,7 @@
                             "parameters": [
                               {
                                 "controlAddress": "/#1",
-                                "value": 11.74369049072266
+                                "value": -122.7797164916992
                               }
                             ],
                             "type": "Float"
@@ -108707,29 +108509,11 @@
                             "niceName": "#4",
                             "param": {
                               "controlAddress": "/states/servo/processors/servoJ/outputs/mappingOutput/command/arguments/#4/#1",
-                              "value": -19.31183052062988
-                            },
-                            "paramLink": {
-                              "linkType": 1,
-                              "mappingValueIndex": 3
-                            },
-                            "parameters": [
-                              {
-                                "controlAddress": "/#1",
-                                "value": -19.31183052062988
-                              }
-                            ],
-                            "type": "Float"
-                          },
-                          {
-                            "niceName": "#5",
-                            "param": {
-                              "controlAddress": "/states/servo/processors/servoJ/outputs/mappingOutput/command/arguments/#5/#1",
                               "value": -280.9832458496094
                             },
                             "paramLink": {
                               "linkType": 1,
-                              "mappingValueIndex": 4
+                              "mappingValueIndex": 3
                             },
                             "parameters": [
                               {
@@ -108740,10 +108524,28 @@
                             "type": "Float"
                           },
                           {
+                            "niceName": "#5",
+                            "param": {
+                              "controlAddress": "/states/servo/processors/servoJ/outputs/mappingOutput/command/arguments/#5/#1",
+                              "value": -19.31183052062988
+                            },
+                            "paramLink": {
+                              "linkType": 1,
+                              "mappingValueIndex": 4
+                            },
+                            "parameters": [
+                              {
+                                "controlAddress": "/#1",
+                                "value": -19.31183052062988
+                              }
+                            ],
+                            "type": "Float"
+                          },
+                          {
                             "niceName": "#6",
                             "param": {
                               "controlAddress": "/states/servo/processors/servoJ/outputs/mappingOutput/command/arguments/#6/#1",
-                              "value": -122.7797164916992
+                              "value": 11.74369049072266
                             },
                             "paramLink": {
                               "linkType": 1,
@@ -108752,7 +108554,7 @@
                             "parameters": [
                               {
                                 "controlAddress": "/#1",
-                                "value": -122.7797164916992
+                                "value": 11.74369049072266
                               }
                             ],
                             "type": "Float"
@@ -108803,7 +108605,8 @@
                       1.0
                     ]
                   ],
-                  "controlAddress": "/enabled"
+                  "controlAddress": "/enabled",
+                  "value": false
                 }
               ],
               "params": {
@@ -109343,7 +109146,7 @@
                 },
                 {
                   "controlAddress": "/listSize",
-                  "value": 84.0
+                  "value": 24.0
                 }
               ],
               "type": "Multiplex"
@@ -109426,7 +109229,7 @@
                             "controlAddress": "/reference",
                             "value": "/modules/oscRobotdriver/values/_joints_0"
                           },
-                          "value": -107.7159271240234
+                          "value": -57.74497604370117
                         }
                       ]
                     },
@@ -109460,7 +109263,7 @@
                             "controlAddress": "/reference",
                             "value": "/modules/oscRobotdriver/values/_joints_2"
                           },
-                          "value": 11.73956489562988
+                          "value": -115.665283203125
                         }
                       ]
                     },
@@ -109494,7 +109297,7 @@
                             "controlAddress": "/reference",
                             "value": "/modules/oscRobotdriver/values/_tcp_pose_3"
                           },
-                          "value": -29.62183380126953
+                          "value": -14.00961875915527
                         }
                       ]
                     },
@@ -109527,7 +109330,7 @@
                             "controlAddress": "/reference",
                             "value": "/modules/oscRobotdriver/values/_tcp_pose_4"
                           },
-                          "value": 8.541240692138672
+                          "value": -94.20659637451172
                         }
                       ]
                     },
@@ -109560,7 +109363,7 @@
                             "controlAddress": "/reference",
                             "value": "/modules/oscRobotdriver/values/_tcp_pose_5"
                           },
-                          "value": 41.00827407836914
+                          "value": -126.1091461181641
                         }
                       ]
                     },
@@ -109593,7 +109396,7 @@
                             "controlAddress": "/reference",
                             "value": "/modules/oscRobotdriver/values/_joints_1"
                           },
-                          "value": -54.22890472412109
+                          "value": -67.7437973022461
                         }
                       ]
                     },
@@ -109627,7 +109430,7 @@
                             "controlAddress": "/reference",
                             "value": "/modules/oscRobotdriver/values/_joints_3"
                           },
-                          "value": -19.31459045410156
+                          "value": -196.0388488769531
                         }
                       ]
                     },
@@ -109661,7 +109464,7 @@
                             "controlAddress": "/reference",
                             "value": "/modules/oscRobotdriver/values/_joints_4"
                           },
-                          "value": -280.9804992675781
+                          "value": 115.4506912231445
                         }
                       ]
                     },
@@ -109695,7 +109498,7 @@
                             "controlAddress": "/reference",
                             "value": "/modules/oscRobotdriver/values/_joints_5"
                           },
-                          "value": -122.7810821533203
+                          "value": 13.30322074890137
                         }
                       ]
                     },
@@ -109729,7 +109532,7 @@
                             "controlAddress": "/reference",
                             "value": "/modules/oscRobotdriver/values/_tcp_pose_0"
                           },
-                          "value": -0.01049260515719652
+                          "value": -0.05810987949371338
                         }
                       ]
                     },
@@ -109762,7 +109565,7 @@
                             "controlAddress": "/reference",
                             "value": "/modules/oscRobotdriver/values/_tcp_pose_1"
                           },
-                          "value": 0.5047075748443604
+                          "value": 0.08326764404773712
                         }
                       ]
                     },
@@ -109795,7 +109598,7 @@
                             "controlAddress": "/reference",
                             "value": "/modules/oscRobotdriver/values/_tcp_pose_2"
                           },
-                          "value": 0.6555525660514832
+                          "value": 0.353993833065033
                         }
                       ]
                     },
@@ -110028,7 +109831,7 @@
                 },
                 {
                   "controlAddress": "/listSize",
-                  "value": 84.0
+                  "value": 24.0
                 }
               ],
               "type": "Multiplex"
@@ -110052,8 +109855,8 @@
       "viewZoom": 1.0
     },
     "viewOffset": [
-      411,
-      -284
+      70,
+      41
     ],
     "viewZoom": 1.0
   }
