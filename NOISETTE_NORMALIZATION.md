@@ -112,3 +112,14 @@ The normalizer:
 - **Better collaboration**: Easier to review changes from multiple contributors
 - **Reduced merge conflicts**: Consistent formatting reduces spurious conflicts
 - **Automatic**: No need to remember to run it manually
+
+## Recent Updates
+
+**September 1, 2025**: Simplified pre-commit hook to focus only on `ur3.noisette` with a straightforward normalization approach:
+- **Removed complex branch workflow**: Previous version created temporary branches which caused infinite loops
+- **Focused on ur3.noisette only**: Simplified to target the primary configuration file
+- **In-place normalization**: File is normalized directly in the working directory and staged
+- **Safe and reliable**: Creates backups during processing and restores on failure
+- **No more infinite loops**: Fixed critical issue where hook would recursively trigger itself
+
+The new hook is much simpler and more reliable - it just normalizes the file and stages it, letting Git handle the rest normally.
