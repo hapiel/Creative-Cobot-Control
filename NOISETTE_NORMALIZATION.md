@@ -115,11 +115,16 @@ The normalizer:
 
 ## Recent Updates
 
-**September 1, 2025**: Simplified pre-commit hook to focus only on `ur3.noisette` with a straightforward normalization approach:
-- **Removed complex branch workflow**: Previous version created temporary branches which caused infinite loops
-- **Focused on ur3.noisette only**: Simplified to target the primary configuration file
-- **In-place normalization**: File is normalized directly in the working directory and staged
-- **Safe and reliable**: Creates backups during processing and restores on failure
-- **No more infinite loops**: Fixed critical issue where hook would recursively trigger itself
+**September 1, 2025**: Enhanced normalization with semantic array preservation and deep structure normalization:
+- **Deep normalization**: Now applies comprehensive normalization to all nested levels of JSON structure
+- **Semantic array preservation**: Preserves order of arrays where sequence matters (coordinates, colors, viewOffset, etc.)
+- **Isolated changes**: Individual value changes now result in minimal, focused Git diffs
+- **Intelligent sorting**: Only sorts arrays that benefit from consistent ordering (objects with niceName, type, etc.)
+- **Enhanced pre-commit hook**: Simple, reliable hook that normalizes ur3.noisette without complex branching
+- **Comprehensive testing**: Verified that single property changes (like TEST LUCIFER → TEST LUCIFER2) show as exactly 1 line changed
 
-The new hook is much simpler and more reliable - it just normalizes the file and stages it, letting Git handle the rest normally.
+### Key Improvements:
+- **Problem solved**: Changes to individual values in Chataigne no longer cause wholesale JSON restructuring
+- **Minimal diffs**: Git diffs now show only actual changes, not formatting artifacts
+- **Semantic awareness**: Arrays like `[x, y]` coordinates and `[r, g, b, a]` colors maintain their meaningful order
+- **Robust normalization**: Handles complex nested structures while preventing infinite recursion
