@@ -2,7 +2,7 @@
   "customVariables": {
     "items": [
       {
-        "niceName": "force smooth ",
+        "niceName": "force smooth",
         "params": {},
         "presets": {
           "viewOffset": [
