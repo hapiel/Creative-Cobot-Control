@@ -1,22 +1,73 @@
-# Noisette File Normalization
+# Noisette JSON Normalization for Git
 
-This repository includes a system to normalize `.noisette` files from Chataigne to ensure consistent Git diffs.
+This solution addresses Chataigne's non-deterministic JSON serialization that causes messy Git diffs in `.noisette` files.
 
 ## Problem
 
-Chataigne saves `.noisette` files with inconsistent JSON key ordering, making Git diffs hard to read and understand actual changes.
+Chataigne saves `.noisette` files as JSON, but the key ordering varies between saves, making Git diffs nearly impossible to read. This happens because:
+
+1. **JavaScript objects** (which JSON is based on) don't guarantee key order
+2. **Chataigne's serialization** doesn't enforce consistent ordering
+3. **Minor changes** result in massive, unreadable diffs when keys are reordered
 
 ## Solution
 
-### normalize_noisette.py
+### 1. Normalization Script (`normalize_noisette.py`)
 
-A Python script that:
-- Recursively sorts all JSON dictionary keys
-- Sorts arrays of objects by meaningful keys (`niceName`, `type`, `controlAddress`)
-- Maintains consistent indentation and formatting
-- Preserves semantic order where it matters
+A comprehensive Python script that:
 
-### Git Pre-commit Hook
+- **Recursively sorts** all dictionary keys for consistent ordering
+- **Intelligently sorts arrays** by meaningful keys (`niceName`, `type`, `controlAddress`)
+- **Preserves semantic order** where it matters (like parameter arrays)
+- **Maintains proper formatting** with 2-space indentation
+- **Handles errors gracefully** with detailed reporting
+
+#### Usage:
+
+```bash
+# Normalize all .noisette files in current directory
+python3 normalize_noisette.py
+
+# Normalize specific files
+python3 normalize_noisette.py file1.noisette file2.noisette
+```
+
+### 2. Git Pre-Commit Hook
+
+Automatically normalizes staged `.noisette` files before each commit:
+
+- **Located at**: `.git/hooks/pre-commit`
+- **Automatically runs** when you `git commit`
+- **Only processes** staged `.noisette` files
+- **Re-stages** normalized files
+- **Fails commit** if normalization fails
+- **Colorized output** for clear feedback
+
+#### Features:
+- ✅ Only processes staged `.noisette` files
+- ✅ Validates Python 3 and script availability
+- ✅ Provides clear error messages
+- ✅ Re-stages normalized files automatically
+- ✅ Aborts commit on normalization failure
+
+### 3. Chataigne JSON Structure
+
+The script understands the complete Chataigne `.noisette` structure:
+
+```json
+{
+  "metaData": { ... },
+  "projectSettings": { ... },
+  "dashboardManager": { ... },
+  "parrots": { ... },
+  "layout": { ... },
+  "modules": { ... },
+  "customVariables": { ... },
+  "states": { ... },
+  "sequences": { ... },
+  "routers": { ... }
+}
+```
 
 Automatically normalizes `.noisette` files before each commit to ensure consistency.
 
