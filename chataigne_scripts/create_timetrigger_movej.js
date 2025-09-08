@@ -1,6 +1,6 @@
 
 var sequenceTarget = script.addTargetParameter("Sequence Target", "The target to use for the moveJ command");
-var triggerMoveJ = script.addTrigger("Create moveJ", "Creates a moveJ command in the current active sequence"); 	
+var triggerMoveJ = script.addTrigger("Create moveJ", "Creates a moveJ command in the current active sequence");
 var defaultSpeed = script.addFloatParameter("Default Speed", "", 60, 0, 360);
 var defaultAcceleration = script.addFloatParameter("Default Acceleration", "", 100, 0, 2250);
 
@@ -37,7 +37,7 @@ function scriptParameterChanged(param) {
 		var jointTargets = ["speed", "acceleration", "base", "shoulder", "elbow", "wrist1", "wrist2", "wrist3"];
 
 		// Define unique values (example numbers, replace with yours)
-		var jointValues = [ defaultSpeed.get(), defaultAcceleration.get(), local.values._joints_0.get() , local.values._joints_1.get(), local.values._joints_2.get(), local.values._joints_3.get(), local.values._joints_4.get(), local.values._joints_5.get()];
+		var jointValues = [defaultSpeed.get(), defaultAcceleration.get(), local.values._joints_0.get(), local.values._joints_1.get(), local.values._joints_2.get(), local.values._joints_3.get(), local.values._joints_4.get(), local.values._joints_5.get()];
 
 		// Loop over joints
 		for (var i = 0; i < jointTargets.length; i++) {
@@ -63,7 +63,7 @@ function scriptParameterChanged(param) {
 		var commandAction = consequenceAction.setCommand("stateMachine", "Action", "Trigger Action");
 		// commandModule, commandPath, commandType
 
-		commandAction.getChild("Target").set("/states/actions/processors/moveJ");
+		commandAction.getChild("Target").set("/states/actions/processors/moveJAtSpeed");
 
 
 
