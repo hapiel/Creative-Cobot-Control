@@ -1,4 +1,5 @@
 /ur3_autosave/
 crashlog.*
 /ur3env/*
+/sounds/*
 *.mp3
