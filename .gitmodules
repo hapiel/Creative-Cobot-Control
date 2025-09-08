@@ -1,0 +1,4 @@
+[submodule "wordverse"]
+	path = wordverse
+	url = https://github.com/Design-Party-Program/wordverse.git
+	branch = cobot-osc-scene
