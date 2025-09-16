@@ -210,7 +210,7 @@ if __name__ == "__main__":
         except Exception as e:
             print(f"Error in RTDE loop: {e}")
 
-        time.sleep(0.01)  # 100Hz loop frequency, adjust as needed
+        time.sleep(0.03)  # 100Hz loop frequency, adjust as needed
         
         
         
